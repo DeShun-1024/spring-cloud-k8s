@@ -18,7 +18,7 @@ build:
     - pwd
     - cp -rf $DIST_JAR_PATH outputs/
     - echo "下载Dockerfile"
-    - cp ./Dockerfile -O outputs/Dockerfile
+    - cp Dockerfile -O outputs/Dockerfile
     - sed -i -e "s#DIST_JAR_PATH#$DIST_JAR_NAME#g" -e "s#DIST_JAR_NAME#$DIST_JAR_NAME#g" -e "s#PROJECT_PORT#$PROJECT_PORT#g" outputs/Dockerfile
 
 #    - wget 'http://10.211.55.45:8081/root/document/raw/master/CICD/deployment-template.yaml' -O outputs/$CI_PROJECT_NAME/deploy.yml
