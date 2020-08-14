@@ -1,0 +1,8 @@
+build:
+  stage: build
+  only:
+    - master
+  tags:
+    - java
+  script:
+    - mvn clean package -Dmaven.test.skip=true
