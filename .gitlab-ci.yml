@@ -29,6 +29,7 @@ build:
     - docker login --username=$ALIYUN_USER_NAME registry.cn-shenzhen.aliyuncs.com -p $ALIYUN_USER_PASSWORD
     - docker build --tag $IMAGE_NAME outputs/
     - docker push $IMAGE_NAME
+    - docker rmi $IMAGE_NAME
 
 #    - ssh -i ~/.ssh/id_rsa root@10.211.55.46 -C "mkdir -p /tmp/$CI_PROJECT_NAME"
 #    - scp -qr outputs/$CI_PROJECT_NAME/deploy.yml root@10.211.55.46:/tmp/$CI_PROJECT_NAME
