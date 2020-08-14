@@ -7,7 +7,29 @@ build:
 
   script:
     - mvn clean package -Dmaven.test.skip=true
+
     - DIST_JAR_PATH=`find . -iname "*.jar" -not -iname "*-sources.jar"`
+    - DIST_JAR_NAME=`echo $DIST_JAR_PATH | rev | cut -d'/' -f 1 | rev`
+    - IMAGE_NAME=registry.cn-hangzhou.aliyuncs.com/hudeshun/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME-$CI_JOB_ID
 
 
 
+    - mkdir -p outputs outputs/$CI_PROJECT_NAME
+    - pwd
+    - cp -rf $DIST_JAR_PATH outputs/
+    - echo "下载Dockerfile"
+    - cp .Dockerfile -O outputs/Dockerfile
+    - sed -i -e "s#DIST_JAR_PATH#$DIST_JAR_NAME#g" -e "s#DIST_JAR_NAME#$DIST_JAR_NAME#g" -e "s#PROJECT_PORT#$PROJECT_PORT#g" outputs/Dockerfile
+
+#    - wget 'http://10.211.55.45:8081/root/document/raw/master/CICD/deployment-template.yaml' -O outputs/$CI_PROJECT_NAME/deploy.yml
+#    - sed -i -e "s#PROJECT_NAME#$CI_PROJECT_NAME#g" -e "s#REPLACE_IMAGE#$IMAGE_NAME#g" -e "s#PROJECT_PORT#$PROJECT_PORT#g" outputs/$CI_PROJECT_NAME/deploy.yml
+#
+#    - docker login --username=$ALIYUN_USER_NAME registry.cn-hangzhou.aliyuncs.com -p $ALIYUN_USER_PASSWORD
+#    - docker build --tag $IMAGE_NAME outputs/
+#    - docker push $IMAGE_NAME
+#
+#    - ssh -i ~/.ssh/id_rsa root@10.211.55.46 -C "mkdir -p /tmp/$CI_PROJECT_NAME"
+#    - scp -qr outputs/$CI_PROJECT_NAME/deploy.yml root@10.211.55.46:/tmp/$CI_PROJECT_NAME
+#    - ssh -i ~/.ssh/id_rsa root@10.211.55.46 -C "kubectl apply -f /tmp/$CI_PROJECT_NAME/deploy.yml"
+#
+#
