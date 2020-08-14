@@ -1,3 +1,6 @@
+variables:
+  PROJECT_PORT: 30000 ## 工程的端口
+
 build:
   stage: build
   only:
