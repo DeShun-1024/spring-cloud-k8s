@@ -3,6 +3,7 @@ build:
   only:
     - master
   tags:
-    - java
+    - shared-windows
+
   script:
     - mvn clean package -Dmaven.test.skip=true
