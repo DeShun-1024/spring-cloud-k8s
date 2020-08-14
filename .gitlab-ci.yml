@@ -3,7 +3,7 @@ build:
   only:
     - master
   tags:
-    - shared-windows
+    - spring-cloud-k8s
 
   script:
     - mvn clean package -Dmaven.test.skip=true
