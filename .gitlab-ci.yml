@@ -7,3 +7,7 @@ build:
 
   script:
     - mvn clean package -Dmaven.test.skip=true
+    - DIST_JAR_PATH=`find . -iname "*.jar" -not -iname "*-sources.jar"`
+
+
+
