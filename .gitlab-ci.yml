@@ -20,11 +20,11 @@ build:
     - cp -rf $DIST_JAR_PATH outputs/
     - echo "构建Dockerfile"
     - cp Dockerfile outputs/Dockerfile
-    - sed -i -e "s#DIST_JAR_PATH#$DIST_JAR_NAME#g" -e "s#DIST_JAR_NAME#$DIST_JAR_NAME#g" -e "s#PROJECT_PORT#$PROJECT_PORT#g" outputs/Dockerfile
+    - sed -i '' -e "s#DIST_JAR_PATH#$DIST_JAR_NAME#g" -e "s#DIST_JAR_NAME#$DIST_JAR_NAME#g" -e "s#PROJECT_PORT#$PROJECT_PORT#g" outputs/Dockerfile
 
     - echo "构建Deployment"
     - cp deploy.yml outputs/deploy.yml
-    - sed -i -e "s#PROJECT_NAME#$CI_PROJECT_NAME#g" -e "s#REPLACE_IMAGE#$IMAGE_NAME#g" -e "s#PROJECT_PORT#$PROJECT_PORT#g" outputs/deploy.yml
+    - sed -i '' -e "s#PROJECT_NAME#$CI_PROJECT_NAME#g" -e "s#REPLACE_IMAGE#$IMAGE_NAME#g" -e "s#PROJECT_PORT#$PROJECT_PORT#g" outputs/deploy.yml
 
 #    - docker login --username=$ALIYUN_USER_NAME registry.cn-shenzhen.aliyuncs.com -p $ALIYUN_USER_PASSWORD
 #    - docker build --tag $IMAGE_NAME outputs/
