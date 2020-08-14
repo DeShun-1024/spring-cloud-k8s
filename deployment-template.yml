@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: PROJECT_NAME
+  labels:
+    app: PROJECT_NAME
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: PROJECT_NAME
+      labels:
+        app: PROJECT_NAME
+    spec:
+      containers:
+        - name: PROJECT_NAME
+          image: REPLACE_IMAGE
+          ports:
+            - containerPort: PROJECT_PORT
+          imagePullPolicy: IfNotPresent
+      imagePullSecrets:
+        - name: regcred-aliyun
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: PROJECT_NAME
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: PROJECT_NAME
+spec:
+  selector:
+    app: PROJECT_NAME
+  ports:
+    - port: PROJECT_PORT
+      targetPort: PROJECT_PORT
+      nodePort: PROJECT_PORT
+  type: NodePort
