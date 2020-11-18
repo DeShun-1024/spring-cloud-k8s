@@ -7,7 +7,6 @@ build:
     - master
   tags:
     - spring-cloud-k8s
-
   script:
     - mvn clean package -Dmaven.test.skip=true
 
