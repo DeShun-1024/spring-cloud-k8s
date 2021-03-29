@@ -1,20 +1,48 @@
 package com.cloud.k8s.springcloudk8s.juc;
 
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 同步减法计数器
+ * 同步工具类
  */
+@Slf4j
 public class count_down_latch {
 
-    public static void main(String[] args) throws InterruptedException {
-        CountDownLatch countDownLatch = new CountDownLatch(5);
 
+    public static void cyclicBarrierDemo() {
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(7, new Runnable() {
+            @Override
+            public void run() {
+                log.info("龙珠已收集完成！召唤神龙！");
+            }
+        });
+        for (int i = 1; i <= 7; i++) {
+            new Thread(() -> {
+                log.info(Thread.currentThread().getName() + ":收集龙珠!");
+                try {
+                    cyclicBarrier.await();
+                } catch (InterruptedException e) {
+                } catch (BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        }
+    }
+
+    /**
+     * 同步减法计数器，等待所有任务执行完，
+     */
+    public static void countDownLatch() throws InterruptedException {
+        CountDownLatch countDownLatch = new CountDownLatch(5);
         for (int i = 1; i <= 5; i++) {
             new Thread(() -> {
                 try {
-                    System.out.println("执行");
+                    log.info(Thread.currentThread().getName() + ":执行!");
                     TimeUnit.SECONDS.sleep(5);
                     countDownLatch.countDown();
                 } catch (Exception e) {
@@ -22,8 +50,13 @@ public class count_down_latch {
                 }
             }).start();
         }
+        log.info(Thread.currentThread().getName() + ": 执行await之前");
         countDownLatch.await();
-        System.out.println("任务全部完成");
-
+        log.info(Thread.currentThread().getName() + ": 任务完成");
     }
+
+    public static void main(String[] args) throws InterruptedException {
+        countDownLatch();
+    }
+
 }
