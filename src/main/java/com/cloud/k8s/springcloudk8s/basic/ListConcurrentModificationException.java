@@ -48,6 +48,8 @@ public class ListConcurrentModificationException {
         System.out.println(list);
     }
 
+
+    // 不要在foreach中遍历，修改remove、add方法。remove元素使用iterator方式、
     public static void subListAddOrRemove() {
         List<String> list = new ArrayList<>();
         list.add("1");
@@ -60,7 +62,6 @@ public class ListConcurrentModificationException {
 //        subList.add("sub-1");
         subList.remove("123");
     }
-
     public static void subListIterator() {
         List<String> list = new ArrayList<>();
         list.add("1");

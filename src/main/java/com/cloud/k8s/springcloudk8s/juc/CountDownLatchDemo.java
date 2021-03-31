@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * 同步工具类
  */
 @Slf4j
-public class count_down_latch {
+public class CountDownLatchDemo {
 
 
     public static void cyclicBarrierDemo() {

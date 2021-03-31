@@ -3,7 +3,7 @@ package com.cloud.k8s.springcloudk8s.juc;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class pc_sync_demo {
+public class PcSyncDemo {
 
 
     private int stock = 0;
@@ -30,7 +30,7 @@ public class pc_sync_demo {
 
 
     public static void main(String[] args) {
-        pc_sync_demo pc_demo = new pc_sync_demo();
+        PcSyncDemo pc_demo = new PcSyncDemo();
         for (int j = 0; j < 5; j++) {
             new Thread(() -> {
                 for (int i = 0; i < 10; i++) {
