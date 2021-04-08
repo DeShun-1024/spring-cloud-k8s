@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2021/3/10 13:56
  */
 
-public class Strategy_Demo {
+public class StrategyDemo {
 
     public static void main(String[] args) {
         Context context = new Context();

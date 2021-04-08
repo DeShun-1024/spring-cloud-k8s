@@ -1,43 +1,41 @@
 package com.cloud.k8s.springcloudk8s.juc;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 public class SemaphoreDemo {
 
 
-    public static void main(String[] args) throws InterruptedException {
-
-        System.out.println(Thread.State.BLOCKED);
-
-
-        ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(10, Integer.MAX_VALUE,
-                60L, TimeUnit.SECONDS,
-                new SynchronousQueue<Runnable>(), new ThreadPoolExecutor.AbortPolicy());
-
-        Semaphore semaphore = new Semaphore(9);
-        for (int i = 0; i < 10; i++) {
-            poolExecutor.execute(() -> {
+    /**
+     * 限流的用的比较多
+     */
+    public static void semaphoreDemo() {
+        Semaphore semaphore = new Semaphore(8);
+        for (int i = 1; i <= 6; i++) {
+            new Thread(() -> {
                 try {
-                    if (semaphore.tryAcquire(1, TimeUnit.SECONDS)) {
-                        System.out.println("获得车位" + Thread.currentThread().getName());
-                    }
+                    // 需要等所有信号量都可用
+                    semaphore.acquire();
+                    log.info("{}:抢到车位", Thread.currentThread().getName());
+
                     TimeUnit.SECONDS.sleep(2);
-                    System.out.println("开出车位" + Thread.currentThread().getName());
+                    log.info("{}:离开车位", Thread.currentThread().getName());
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
                     semaphore.release();
                 }
-            });
+            }, String.valueOf(i)).start();
         }
+    }
 
 
-
-        poolExecutor.shutdown();
-
+    public static void main(String[] args) throws InterruptedException {
+        semaphoreDemo();
     }
 
 

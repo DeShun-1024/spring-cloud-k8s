@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 
 @Slf4j
-public class PcLockDemo {
+public class ConditionDemo {
 
     private Integer stock = 0;
 
@@ -85,7 +85,7 @@ public class PcLockDemo {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        PcLockDemo lock_demo = new PcLockDemo();
+        ConditionDemo lock_demo = new ConditionDemo();
 
         for (int i = 0; i < 50; i++) {
             new Thread(() -> {

@@ -9,7 +9,7 @@ import lombok.Data;
  * 3、具体建造者(Concrete Builder）：实现 Builder 接口，完成复杂产品的各个部件的具体创建方法。
  * 4、指挥者（Director）：它调用建造者对象中的部件构造与装配方法完成复杂对象的创建，在指挥者中不涉及具体产品的信息。
  */
-public class Builder_Demo {
+public class BuilderDemo {
     public static void main(String[] args) {
         Builder builder = new Builder_A();
         Director director = new Director(builder);
