@@ -8,6 +8,23 @@ import java.util.concurrent.TimeUnit;
 public class ThreadDemo {
 
 
+    public static void waiting() throws InterruptedException {
+        ThreadDemo demo = new ThreadDemo();
+        final Thread thread = new Thread(() -> {
+            synchronized (demo) {
+                try {
+                    demo.wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        thread.start();
+        TimeUnit.SECONDS.sleep(1L);
+        log.info("线程状态：{}", thread.getState());
+    }
+
+
     /**
      * 1、一个线程持有锁,另外一个线程获取这个锁，如果获取不到就处于block
      * 2、或者在是调用wait方法后，再次获取锁
@@ -67,5 +84,6 @@ public class ThreadDemo {
 //        newState();
 //        strart();
 //        block();
+        waiting();
     }
 }
