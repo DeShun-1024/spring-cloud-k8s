@@ -3,8 +3,8 @@ package com.cloud.k8s.springcloudk8s.voli;
 import java.util.concurrent.TimeUnit;
 
 
-
 /**
+ * volatile 内存可见性
  *
  * @author hudeshun
  * @since 2021/4/6 12:48
@@ -44,8 +44,6 @@ public class MemoryDemo {
         System.out.println(flagWithVol);
 
     }
-
-
 
 
     public static void main(String[] args) throws InterruptedException {

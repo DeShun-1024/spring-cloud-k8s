@@ -24,7 +24,7 @@ public class WaitDemo {
         this.notify();
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void test(){
         final WaitDemo demo = new WaitDemo();
 
         new Thread(new Runnable() {
@@ -50,5 +50,16 @@ public class WaitDemo {
 
             }
         }).start();
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        WaitDemo waitDemo = new WaitDemo();
+        synchronized (waitDemo){
+            waitDemo.wait();
+        }
+
+
+        TimeUnit.SECONDS.sleep(3L);
     }
 }

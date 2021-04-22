@@ -28,8 +28,9 @@ public class ThreadPoolDemo {
                 new ThreadPoolExecutor.DiscardOldestPolicy() //丢弃最老的未处理的，尝试执行，否则抛弃，
         );
 
+
         try {
-            for (int i = 1; i <= 17; i++) {
+            for (int i = 1; i <= 197; i++) {
                 poolExecutor.execute(() -> {
                     System.out.println(Thread.currentThread().getName());
                 });
@@ -56,7 +57,7 @@ public class ThreadPoolDemo {
         );
 
         try {
-            for (int i = 1; i <= 17; i++) {
+            for (int i = 1; i <= 197; i++) {
                 poolExecutor.execute(() -> {
                     System.out.println(Thread.currentThread().getName());
                 });
