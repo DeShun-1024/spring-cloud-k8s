@@ -72,6 +72,7 @@ class ConcreteObserver2 implements Observer {
 public class ObserverDemo {
     public static void main(String[] args) {
         Subject subject = new ConcreteSubject();
+        subject.add();
         subject.notifyObserver();
 
 
