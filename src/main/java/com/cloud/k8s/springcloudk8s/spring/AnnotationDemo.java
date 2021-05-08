@@ -33,7 +33,7 @@ public class AnnotationDemo {
 
     public static void main(String[] args) {
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-        context.addBeanFactoryPostProcessor(new MyBeanPostProcessor());
+        context.addBeanFactoryPostProcessor(new MyBeanFactoryPostProcessor());
         context.registerBean(AnnotationDemo.class);
 
         context.refresh();

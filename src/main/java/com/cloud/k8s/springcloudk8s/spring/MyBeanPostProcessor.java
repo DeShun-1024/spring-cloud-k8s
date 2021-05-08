@@ -1,18 +1,23 @@
 package com.cloud.k8s.springcloudk8s.spring;
 
+
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.stereotype.Component;
 
-
 @Component
-public class MyBeanPostProcessor implements BeanFactoryPostProcessor {
-
+public class MyBeanPostProcessor implements BeanPostProcessor {
 
     @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-        System.out.println("111");
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+
+        System.out.println("初始化之前...." + beanName);
+        return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("初始化之后..." + beanName);
+        return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
     }
 }
