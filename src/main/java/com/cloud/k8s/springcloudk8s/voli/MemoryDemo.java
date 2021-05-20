@@ -1,5 +1,8 @@
 package com.cloud.k8s.springcloudk8s.voli;
 
+import com.cloud.k8s.springcloudk8s.spring.MyBeanFactoryPostProcessorOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.concurrent.TimeUnit;
 
 

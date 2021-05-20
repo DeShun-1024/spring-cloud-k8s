@@ -25,13 +25,17 @@ public class CountDownLatchDemo {
             new Thread(() -> {
                 log.info(Thread.currentThread().getName() + ":收集龙珠!");
                 try {
+                    TimeUnit.SECONDS.sleep(3L);
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 }
             }).start();
+
         }
+
+        System.out.println("aa");
     }
 
     /**
@@ -57,6 +61,7 @@ public class CountDownLatchDemo {
 
     public static void main(String[] args) throws InterruptedException {
         countDownLatch();
+//        cyclicBarrierDemo();
     }
 
 }
