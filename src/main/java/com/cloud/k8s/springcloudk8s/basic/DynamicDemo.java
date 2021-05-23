@@ -31,26 +31,24 @@ public class DynamicDemo {
     @Data
     static class DynamicObject implements InvocationHandler{
 
-        private TestImpl test;
 
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             System.out.println("111");
 
             System.out.println("2222");
-            return method.invoke(test,args);
+            return null;
         }
     }
 
 
     public static void main(String[] args) {
-        TestImpl real = new TestImpl();
+//        TestImpl real = new TestImpl();
 
         DynamicObject dynamicObject = new DynamicObject();
-        dynamicObject.setTest(real);
 
 
-        final Object proxyObject = Proxy.newProxyInstance(Test.class.getClassLoader(), real.getClass().getInterfaces(), dynamicObject);
+        final Object proxyObject = Proxy.newProxyInstance(Test.class.getClassLoader(), new Class[]{Test.class}, dynamicObject);
 
 
         if (proxyObject instanceof Test){

@@ -1,5 +1,10 @@
 package com.cloud.k8s.springcloudk8s.juc;
 
+/**
+ * 同步代码块锁住的对象，
+ * 1、对象中的内部对象
+ * 2、this相当于对象本身
+ */
 public class SynchronousDemo {
 
 
@@ -13,7 +18,7 @@ public class SynchronousDemo {
         }).start();
 
         new Thread(() -> {
-            demo1.show2();
+            demo.show2();
         }).start();
 
 
