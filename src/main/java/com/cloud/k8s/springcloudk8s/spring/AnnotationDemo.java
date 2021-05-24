@@ -1,6 +1,8 @@
 package com.cloud.k8s.springcloudk8s.spring;
 
 import com.alibaba.fastjson.JSON;
+import com.cloud.k8s.springcloudk8s.spring.bean.MyFeign;
+import com.cloud.k8s.springcloudk8s.spring.bean.MyFeignFactoryBean;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -31,7 +33,7 @@ public class AnnotationDemo {
 
     }
 
-    public static void main(String[] args) {
+    public void beanFactoryPostProcess(){
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.addBeanFactoryPostProcessor(new MyBeanFactoryPostProcessor());
         context.registerBean(AnnotationDemo.class);
@@ -40,6 +42,19 @@ public class AnnotationDemo {
 
         final Object test = context.getBean("annotationDemo");
         log.info("获取Bean:{}", JSON.toJSONString(test));
+    }
+
+    public static void factoryBeanAndBeanDefinition(){
+        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        context.register(MyFeignFactoryBean.class);
+        context.refresh();
+        final MyFeign bean = context.getBean(MyFeign.class);
+
+        bean.test();
+    }
+
+    public static void main(String[] args) {
+        factoryBeanAndBeanDefinition();
     }
 
 }
