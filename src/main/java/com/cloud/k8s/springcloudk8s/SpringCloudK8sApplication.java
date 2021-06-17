@@ -6,11 +6,17 @@ import com.cloud.k8s.springcloudk8s.spring.bean.MyFeignFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Import;
 
+import java.util.Map;
 
-//@EnableEurekaServer
+import static java.lang.Thread.getAllStackTraces;
+
+//@EnableCircuitBreaker
+@EnableEurekaServer
 @EnableFeignClients
 @SpringBootApplication
 @Import(MyBeanDefinitionRegistry.class)
@@ -21,7 +27,6 @@ public class SpringCloudK8sApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringCloudK8sApplication.class, args);
-
     }
 
 }

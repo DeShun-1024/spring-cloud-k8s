@@ -9,6 +9,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 同步工具类
+ *
+ *1、countdown 是调用线程阻塞等待，cyclicbarrier 是执行线程相互等待，而且调用线程是不阻塞的。
+ *
  */
 @Slf4j
 public class CountDownLatchDemo {
@@ -60,8 +63,8 @@ public class CountDownLatchDemo {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        countDownLatch();
-//        cyclicBarrierDemo();
+//        countDownLatch();
+        cyclicBarrierDemo();
     }
 
 }

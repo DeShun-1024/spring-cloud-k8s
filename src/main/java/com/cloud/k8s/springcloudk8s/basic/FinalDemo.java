@@ -9,3 +9,27 @@ public class FinalDemo {
         System.out.println(a);
     }
 }
+
+
+class Father {
+
+    public void test() {
+        System.out.println("");
+    }
+
+
+    /**
+     * final 修饰，子类不能重写
+     */
+    public final void cannotOverrider() {
+
+    }
+}
+
+class Son extends Father {
+
+    @Override
+    public void test() {
+        super.test();
+    }
+}

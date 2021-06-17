@@ -14,7 +14,7 @@ public class SemaphoreDemo {
      */
     public static void semaphoreDemo() {
         Semaphore semaphore = new Semaphore(8);
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i <= 500; i++) {
             new Thread(() -> {
                 try {
                     // 需要等所有信号量都可用
