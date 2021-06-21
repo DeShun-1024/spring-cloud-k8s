@@ -12,6 +12,18 @@ import java.util.concurrent.TimeUnit;
  * 2、直接丢弃，不进行任务处理。
  * 3、交由调用线程执行，
  * 4、尝试与最先执行的竞争，尝试执行，否则抛弃，
+ *
+ *
+ *
+ *
+ * 线程池工作线程：
+ * hashset<Worker> 工作线程；
+ * BlockingQueue<Runnable> 等待队列；
+ *
+ * 线程池触发最大线程：任务书大于（核心数+等待队列）
+ *
+ *
+ *
  * @author hudeshun
  * @since 2021/4/5 22:28
  */

@@ -79,11 +79,24 @@ public class ThreadDemo {
         log.info("线程状态：{}", thread.getState());
     }
 
+    public static void joinDemo() throws InterruptedException {
+        final Thread thread = new Thread(() -> {
+            System.out.println("join");
+        });
+
+        thread.start();
+        thread.join();
+
+        log.info("线程状态：{}", thread.getState());
+    }
+
 
     public static void main(String[] args) throws InterruptedException {
 //        newState();
 //        strart();
 //        block();
-        waiting();
+//        waiting();
+
+        joinDemo();
     }
 }
