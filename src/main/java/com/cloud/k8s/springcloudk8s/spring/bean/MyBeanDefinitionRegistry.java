@@ -20,6 +20,7 @@ public class MyBeanDefinitionRegistry implements ImportBeanDefinitionRegistrar {
 
         BeanDefinitionBuilder definitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(MyFeignFactoryBean.class);
 
+        // BY type
         definitionBuilder.setAutowireMode(2);
         final AbstractBeanDefinition beanDefinition = definitionBuilder.getBeanDefinition();
         beanDefinition.setAttribute(FactoryBean.OBJECT_TYPE_ATTRIBUTE, MyFeign.class);

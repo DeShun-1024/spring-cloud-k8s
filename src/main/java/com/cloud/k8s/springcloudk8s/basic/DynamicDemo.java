@@ -43,17 +43,19 @@ public class DynamicDemo {
 
 
     public static void main(String[] args) {
-//        TestImpl real = new TestImpl();
+        TestImpl real = new TestImpl();
+
+        real.sout();
 
         DynamicObject dynamicObject = new DynamicObject();
 
 
         final Object proxyObject = Proxy.newProxyInstance(Test.class.getClassLoader(), new Class[]{Test.class}, dynamicObject);
 
-
-        if (proxyObject instanceof Test){
-            ((Test) proxyObject).sout();
-        }
+//
+//        if (proxyObject instanceof Test){
+//            ((Test) proxyObject).sout();
+//        }
 
 
 

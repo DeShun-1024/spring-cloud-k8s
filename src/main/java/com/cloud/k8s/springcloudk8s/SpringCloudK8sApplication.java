@@ -1,28 +1,20 @@
 package com.cloud.k8s.springcloudk8s;
 
-import com.cloud.k8s.springcloudk8s.spring.MyBeanPostProcessor;
 import com.cloud.k8s.springcloudk8s.spring.bean.MyBeanDefinitionRegistry;
-import com.cloud.k8s.springcloudk8s.spring.bean.MyFeignFactoryBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Import;
 
-import java.util.Map;
-
-import static java.lang.Thread.getAllStackTraces;
-
 //@EnableCircuitBreaker
 @EnableEurekaServer
+@EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication
 @Import(MyBeanDefinitionRegistry.class)
 public class SpringCloudK8sApplication {
-
-
 
 
     public static void main(String[] args) {
