@@ -36,7 +36,7 @@ public class BlockingQueueDemo {
     /**
      * offer、poll不会出现异常
      */
-    public static void withoutException() {
+    public static void withoutException() throws InterruptedException {
         final BlockingQueue<String> queue = new ArrayBlockingQueue<>(3);
         System.out.println(queue.offer("1"));
         System.out.println(queue.offer("1"));
@@ -104,12 +104,12 @@ public class BlockingQueueDemo {
     public static void main(String[] args) throws InterruptedException {
 //        exception();
 
-//        withoutException();
+        withoutException();
 
 //        block();
 
 //        blockInLimit();
 
-        getFist();
+//        getFist();
     }
 }

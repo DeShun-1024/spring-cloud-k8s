@@ -85,9 +85,16 @@ public class ThreadDemo {
         });
 
         thread.start();
+        //不会释放锁，会等当前线程执行完成
         thread.join();
 
         log.info("线程状态：{}", thread.getState());
+    }
+
+
+    public static void aVoid(){
+        Thread.interrupted();
+        Thread.interrupted();
     }
 
 
