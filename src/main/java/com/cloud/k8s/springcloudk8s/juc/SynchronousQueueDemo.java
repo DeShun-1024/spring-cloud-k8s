@@ -17,6 +17,7 @@ public class SynchronousQueueDemo {
     public static void putDemo() throws InterruptedException {
         SynchronousQueue<String> queue = new SynchronousQueue<>();
         queue.put("1");
+
     }
 
 

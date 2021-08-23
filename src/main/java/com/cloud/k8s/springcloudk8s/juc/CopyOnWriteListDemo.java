@@ -1,6 +1,7 @@
 package com.cloud.k8s.springcloudk8s.juc;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -27,5 +28,6 @@ public class CopyOnWriteListDemo {
 
         CopyOnWriteListDemo demo = new CopyOnWriteListDemo();
         demo.unSafeList();
+
     }
 }

@@ -5,6 +5,12 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.Executors;
 
+
+/**
+ * 变量thread，其实就是ThreadDemo2线程。
+ * <p>
+ * 线程池中的Worker中的工作线程final Thread thread; 采用的这中写法
+ */
 @Slf4j
 @Getter
 public class ThreadDemo2 implements Runnable {
