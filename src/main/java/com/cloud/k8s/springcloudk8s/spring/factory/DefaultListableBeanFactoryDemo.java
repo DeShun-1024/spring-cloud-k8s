@@ -5,6 +5,13 @@ import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebSe
 public class DefaultListableBeanFactoryDemo {
 
 
+
+    public static void processorDemo(){
+
+
+    }
+
+
     /**
      * spring 在初始化context时，会调用这个这个类的构造方法。
      * 所以在这个类的对象构建完成后，DefaultListableBeanFactory就已经创建完成。
@@ -14,6 +21,6 @@ public class DefaultListableBeanFactoryDemo {
      */
     public static void main(String[] args) {
         AnnotationConfigServletWebServerApplicationContext applicationContext = new AnnotationConfigServletWebServerApplicationContext();
-        System.out.println(applicationContext.getDefaultListableBeanFactory());
+        System.out.println(applicationContext.getDefaultListableBeanFactory().getBeanPostProcessors());
     }
 }

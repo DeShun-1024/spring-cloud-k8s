@@ -28,6 +28,7 @@ public class CopyOnWriteListDemo {
 
         CopyOnWriteListDemo demo = new CopyOnWriteListDemo();
         demo.unSafeList();
+        List<String> list1 = new CopyOnWriteArrayList<>();
 
     }
 }

@@ -3,6 +3,7 @@ package com.cloud.k8s.springcloudk8s.spring;
 import com.alibaba.fastjson.JSON;
 import com.cloud.k8s.springcloudk8s.spring.bean.MyFeign;
 import com.cloud.k8s.springcloudk8s.spring.bean.MyFeignFactoryBean;
+import com.cloud.k8s.springcloudk8s.spring.customize.MyBeanFactoryPostProcessor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
