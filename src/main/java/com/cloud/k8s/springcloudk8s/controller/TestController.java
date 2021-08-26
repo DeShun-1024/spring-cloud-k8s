@@ -3,6 +3,7 @@ package com.cloud.k8s.springcloudk8s.controller;
 
 import com.cloud.k8s.springcloudk8s.spring.bean.MyFeign;
 import com.cloud.k8s.springcloudk8s.spring.condition.ConditionBean;
+import com.cloud.k8s.springcloudk8s.spring.condition.MyConditionComponentDemo;
 import com.cloud.k8s.springcloudk8s.spring.qualifier.MyQualifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,6 @@ import java.util.List;
 @RequestMapping
 public class TestController {
 
-
     @Autowired
     private MyFeign myFeignFactoryBean;
 
@@ -26,10 +26,12 @@ public class TestController {
     @Autowired
     private List<RestTemplate> restTemplates1;
 
-
     @Autowired
     @MyQualifier
     private List<RestTemplate> restTemplates2;
+
+    @Autowired
+    private MyConditionComponentDemo conditionComponentDemo;
 
 
     @GetMapping("/test")
@@ -49,5 +51,9 @@ public class TestController {
         System.out.println(restTemplates2);
     }
 
+    @GetMapping("/conditionComponentDemo")
+    public void conditionComponentDemo(){
+        conditionComponentDemo.test();
+    }
 
 }
