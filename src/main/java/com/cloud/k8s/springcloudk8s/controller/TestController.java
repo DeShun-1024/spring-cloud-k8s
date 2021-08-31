@@ -5,6 +5,7 @@ import com.cloud.k8s.springcloudk8s.spring.bean.MyFeign;
 import com.cloud.k8s.springcloudk8s.spring.condition.ConditionBean;
 import com.cloud.k8s.springcloudk8s.spring.condition.MyConditionComponentDemo;
 import com.cloud.k8s.springcloudk8s.spring.qualifier.MyQualifier;
+import com.cloud.k8s.springcloudk8s.spring.qualifier.ServiceDemo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,10 +29,17 @@ public class TestController {
 
     @Autowired
     @MyQualifier
-    private List<RestTemplate> restTemplates2;
+    private RestTemplate restTemplates2;
 
     @Autowired
     private MyConditionComponentDemo conditionComponentDemo;
+
+    @Autowired
+    @MyQualifier
+    private ServiceDemo serviceDemo;
+
+    @Autowired
+    private List<ServiceDemo> serviceDemos;
 
 
     @GetMapping("/test")
@@ -46,14 +54,14 @@ public class TestController {
 
     @GetMapping("/myQualifier")
     public void myQualifier() {
-        System.out.println(restTemplates1);
-        System.out.println("********");
-        System.out.println(restTemplates2);
+        System.out.println(serviceDemo);
+        System.out.println(serviceDemos);
     }
 
     @GetMapping("/conditionComponentDemo")
     public void conditionComponentDemo(){
         conditionComponentDemo.test();
     }
+
 
 }
