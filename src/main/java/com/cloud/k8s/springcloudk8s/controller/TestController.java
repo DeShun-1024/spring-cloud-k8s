@@ -4,6 +4,7 @@ package com.cloud.k8s.springcloudk8s.controller;
 import com.cloud.k8s.springcloudk8s.spring.bean.MyFeign;
 import com.cloud.k8s.springcloudk8s.spring.condition.ConditionBean;
 import com.cloud.k8s.springcloudk8s.spring.condition.MyConditionComponentDemo;
+import com.cloud.k8s.springcloudk8s.spring.customize.MyInstantiationAwareBeanPostProcessor;
 import com.cloud.k8s.springcloudk8s.spring.qualifier.MyQualifier;
 import com.cloud.k8s.springcloudk8s.spring.qualifier.ServiceDemo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,9 @@ public class TestController {
     @Autowired
     private List<ServiceDemo> serviceDemos;
 
+    @Autowired
+    private List<MyInstantiationAwareBeanPostProcessor.InstantiationAware> instantiationAwares;
+
 
     @GetMapping("/test")
     public void test() {
@@ -61,6 +65,13 @@ public class TestController {
     @GetMapping("/conditionComponentDemo")
     public void conditionComponentDemo(){
         conditionComponentDemo.test();
+    }
+
+    @GetMapping("/instantiationAware")
+    public void instantiationAware(){
+        for (MyInstantiationAwareBeanPostProcessor.InstantiationAware instantiationAware : instantiationAwares) {
+            instantiationAware.name();
+        }
     }
 
 
