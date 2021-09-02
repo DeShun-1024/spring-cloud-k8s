@@ -1,4 +1,4 @@
-package com.cloud.k8s.springcloudk8s.spring.customize;
+package com.cloud.k8s.springcloudk8s.spring.lifecycle;
 
 import org.springframework.context.SmartLifecycle;
 import org.springframework.context.annotation.Configuration;
