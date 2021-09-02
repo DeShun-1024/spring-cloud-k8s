@@ -1,4 +1,4 @@
-package com.cloud.k8s.springcloudk8s.spring.customize;
+package com.cloud.k8s.springcloudk8s.spring.processor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;

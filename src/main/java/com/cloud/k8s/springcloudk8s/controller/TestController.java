@@ -4,7 +4,7 @@ package com.cloud.k8s.springcloudk8s.controller;
 import com.cloud.k8s.springcloudk8s.spring.bean.MyFeign;
 import com.cloud.k8s.springcloudk8s.spring.condition.ConditionBean;
 import com.cloud.k8s.springcloudk8s.spring.condition.MyConditionComponentDemo;
-import com.cloud.k8s.springcloudk8s.spring.customize.MyInstantiationAwareBeanPostProcessor;
+import com.cloud.k8s.springcloudk8s.spring.processor.MyInstantiationAwareBeanPostProcessor;
 import com.cloud.k8s.springcloudk8s.spring.qualifier.MyQualifier;
 import com.cloud.k8s.springcloudk8s.spring.qualifier.ServiceDemo;
 import org.springframework.beans.factory.annotation.Autowired;
