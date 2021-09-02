@@ -2,7 +2,12 @@ package com.cloud.k8s.springcloudk8s.basic;
 
 public class InstanceOfDemo {
 
-    static class Father{
+
+    interface InstanceFace{
+
+    }
+
+    static class Father implements InstanceFace{
 
     }
 
@@ -16,5 +21,7 @@ public class InstanceOfDemo {
 
         System.out.println(son instanceof Father);
         System.out.println(son instanceof Son);
+        System.out.println(son instanceof InstanceFace);
+
     }
 }

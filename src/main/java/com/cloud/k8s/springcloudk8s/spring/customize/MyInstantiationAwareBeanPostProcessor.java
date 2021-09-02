@@ -1,6 +1,7 @@
 package com.cloud.k8s.springcloudk8s.spring.customize;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory;
 import org.springframework.stereotype.Component;
@@ -17,10 +18,12 @@ import java.lang.reflect.Proxy;
 public class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 
     /**
+     * 实例化之前
      * 返回一个代理对象
      * <p>
      * spring 中实例化bean
      * {@link AbstractAutowireCapableBeanFactory#resolveBeforeInstantiation}
+     * {@link AbstractAutowireCapableBeanFactory#createBean} 505
      */
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
@@ -38,11 +41,25 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
         return InstantiationAwareBeanPostProcessor.super.postProcessBeforeInstantiation(beanClass, beanName);
     }
 
+    /**
+     * 实例化 之后
+     */
     @Override
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         return InstantiationAwareBeanPostProcessor.super.postProcessAfterInstantiation(bean, beanName);
     }
 
+    /**
+     * 在bean实例化后，初始化之前，可以通过这个方法设置bean的属性
+     * <p>
+     * 执行时间节点:
+     * <p>
+     * {@link AbstractAutowireCapableBeanFactory#populateBean} 1420
+     */
+    @Override
+    public PropertyValues postProcessProperties(PropertyValues pvs, Object bean, String beanName) throws BeansException {
+        return InstantiationAwareBeanPostProcessor.super.postProcessProperties(pvs, bean, beanName);
+    }
 
     public interface InstantiationAware {
         void name();
