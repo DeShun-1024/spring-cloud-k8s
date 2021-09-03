@@ -1,5 +1,7 @@
-package com.cloud.k8s.springcloudk8s.spring.bean;
+package com.cloud.k8s.springcloudk8s.spring.importer;
 
+import com.cloud.k8s.springcloudk8s.spring.bean.MyFeign;
+import com.cloud.k8s.springcloudk8s.spring.bean.MyFeignFactoryBean;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
@@ -13,7 +15,7 @@ import org.springframework.core.type.AnnotationMetadata;
  * 2、实现spring的bean扩展接口，自定义bena的定义信息，并执行这些bean的生成方式；
  * 3、此时是可以通过factoryBean来设置bean的生成方式的
  */
-public class MyBeanDefinitionRegistry implements ImportBeanDefinitionRegistrar {
+public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
 
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {

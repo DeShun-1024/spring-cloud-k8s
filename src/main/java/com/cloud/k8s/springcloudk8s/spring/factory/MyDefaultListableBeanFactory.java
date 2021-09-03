@@ -2,7 +2,7 @@ package com.cloud.k8s.springcloudk8s.spring.factory;
 
 import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext;
 
-public class DefaultListableBeanFactoryDemo {
+public class MyDefaultListableBeanFactory {
 
 
 
