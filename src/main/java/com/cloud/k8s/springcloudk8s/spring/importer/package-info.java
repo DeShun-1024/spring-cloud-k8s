@@ -9,6 +9,10 @@
  *
  * <p>
  * {@link org.springframework.context.annotation.PropertySources} 注入自定义的配置文件
+ * <p>
+ * <p>
+ * 使用场景：
+ * 一般使用在配置类，引入其他bean注入，或者自定义bean
  *
  * @author hudeshun
  * @since 2021/9/7 21:46
