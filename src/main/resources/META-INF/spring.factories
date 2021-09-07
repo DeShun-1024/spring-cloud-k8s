@@ -1,1 +1,5 @@
-org.springframework.beans.factory.config.BeanFactoryPostProcessor =
+#需要通过 SpringFactoriesLoader 来获取bean
+#com.cloud.k8s.springcloudk8s.spring.spi.MySpringFactoriesLoader = com.cloud.k8s.springcloudk8s.spring.spi.MySpringFactoriesLoaderImpl
+
+# 通过注解，可以将bean注入
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.cloud.k8s.springcloudk8s.spring.spi.MySpringFactoriesLoaderImpl

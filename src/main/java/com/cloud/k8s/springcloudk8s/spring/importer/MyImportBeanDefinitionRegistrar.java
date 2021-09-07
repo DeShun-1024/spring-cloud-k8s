@@ -17,6 +17,11 @@ import org.springframework.core.type.AnnotationMetadata;
  */
 public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegistrar {
 
+
+    /**
+     * 与ImportSelector想比较，改方法对于bean可以做更多定制。
+     * 例如，{@link org.springframework.cloud.openfeign.EnableFeignClients}，注入一类bean
+     */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
 

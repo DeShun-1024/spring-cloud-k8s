@@ -7,6 +7,8 @@ import com.cloud.k8s.springcloudk8s.spring.condition.MyConditionComponentDemo;
 import com.cloud.k8s.springcloudk8s.spring.processor.MyInstantiationAwareBeanPostProcessor;
 import com.cloud.k8s.springcloudk8s.spring.qualifier.MyQualifier;
 import com.cloud.k8s.springcloudk8s.spring.qualifier.ServiceDemo;
+import com.cloud.k8s.springcloudk8s.spring.spi.MySpringFactoriesLoader;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
+
+@Slf4j
 @RestController
 @RequestMapping
 public class TestController {
@@ -45,9 +49,15 @@ public class TestController {
     @Autowired
     private List<MyInstantiationAwareBeanPostProcessor.InstantiationAware> instantiationAwares;
 
+    /**
+     * SPI
+     */
+    @Autowired
+    private MySpringFactoriesLoader factoriesLoader;
 
     @GetMapping("/test")
     public void test() {
+        log.info("trace... ");
         myFeignFactoryBean.test();
     }
 
