@@ -1,4 +1,4 @@
-package com.cloud.k8s.springcloudk8s.spring.bean;
+package com.cloud.k8s.springcloudk8s.spring.feign;
 
 import org.springframework.beans.factory.FactoryBean;
 

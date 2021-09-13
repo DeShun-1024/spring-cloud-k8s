@@ -1,6 +1,8 @@
 package com.cloud.k8s.springcloudk8s.spring.bean;
 
 import com.alibaba.fastjson.JSON;
+import com.cloud.k8s.springcloudk8s.spring.feign.MyFeign;
+import com.cloud.k8s.springcloudk8s.spring.feign.MyFeignFactoryBean;
 import com.cloud.k8s.springcloudk8s.spring.processor.MyBeanFactoryPostProcessor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

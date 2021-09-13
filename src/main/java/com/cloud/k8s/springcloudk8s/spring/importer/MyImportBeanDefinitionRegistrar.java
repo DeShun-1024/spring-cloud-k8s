@@ -1,7 +1,7 @@
 package com.cloud.k8s.springcloudk8s.spring.importer;
 
-import com.cloud.k8s.springcloudk8s.spring.bean.MyFeign;
-import com.cloud.k8s.springcloudk8s.spring.bean.MyFeignFactoryBean;
+import com.cloud.k8s.springcloudk8s.spring.feign.MyFeign;
+import com.cloud.k8s.springcloudk8s.spring.feign.MyFeignFactoryBean;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.support.AbstractBeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;

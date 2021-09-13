@@ -1,4 +1,4 @@
-package com.cloud.k8s.springcloudk8s.spring.bean;
+package com.cloud.k8s.springcloudk8s.spring.feign;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
