@@ -1,10 +1,12 @@
 package com.cloud.k8s.springcloudk8s.spring.processor;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
@@ -13,7 +15,6 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
      */
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }
 

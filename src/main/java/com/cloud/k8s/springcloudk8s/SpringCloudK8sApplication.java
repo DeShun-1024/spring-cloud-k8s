@@ -10,8 +10,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Import;
 
 //@EnableCircuitBreaker
-@EnableEurekaServer
-@EnableEurekaClient
+//@EnableEurekaServer
+//@EnableEurekaClient
 @EnableFeignClients
 @SpringBootApplication
 @Import({MyImportBeanDefinitionRegistrar.class, MyImportSelector.class})

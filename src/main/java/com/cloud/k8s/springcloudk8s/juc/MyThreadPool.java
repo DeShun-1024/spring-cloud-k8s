@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
  * @author hudeshun
  * @since 2021/4/5 22:28
  */
-public class ThreadPoolDemo {
+public class MyThreadPool {
 
     public static void discardOldestPolicy(){
         final ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(

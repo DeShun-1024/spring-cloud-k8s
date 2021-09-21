@@ -1,7 +1,9 @@
 package com.cloud.k8s.springcloudk8s.spring.bean;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+
+@Service("b")
 public class DemoBean3 extends DemoBean2 {
 
     @Override

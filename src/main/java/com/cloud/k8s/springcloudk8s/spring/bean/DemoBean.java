@@ -1,8 +1,8 @@
 package com.cloud.k8s.springcloudk8s.spring.bean;
 
-public class DemoBean {
+public interface DemoBean {
 
-    public String get(){
+    default String get(){
         return "初代";
     }
 }

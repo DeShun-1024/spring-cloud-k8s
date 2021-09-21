@@ -1,5 +1,6 @@
 package com.cloud.k8s.springcloudk8s.spring.processor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
@@ -12,8 +13,19 @@ import java.lang.reflect.Proxy;
 
 /**
  * 特殊的BPP，重写下面两个方法，如果返回不是null，将直接返回这个bean实例；
+ *
+ *
+ *
+ * bean 实例化节点:
+ *
+ * {@link AbstractAutowireCapableBeanFactory#doCreateBean} 594，
+ * 这个方法是完成bena的实例化与初始化，
+ *
+ *
+ * 这个相比较一般的BeanPostProcessor，会在实例化之前之前；
  */
 
+@Slf4j
 @Component
 public class MyInstantiationAwareBeanPostProcessor implements InstantiationAwareBeanPostProcessor {
 
@@ -28,7 +40,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
         if (beanName.equals("instantiationAware")) {
-            System.out.println("执行postProcessBeforeInstantiation...");
+            log.info("执行postProcessBeforeInstantiation...");
             final InstantiationAwareImpl target = new InstantiationAwareImpl();
             final InstantiationAwareInvoker invoker = new InstantiationAwareInvoker(target);
 
