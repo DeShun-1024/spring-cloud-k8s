@@ -30,6 +30,8 @@ build:
     - docker push $IMAGE_NAME
     - docker rmi $IMAGE_NAME
 
+    - ssh -i ~/.ssh/id_rsa root@$K8S_MASTER_IP -C "pwd"
+
     - ssh -i ~/.ssh/id_rsa root@$K8S_MASTER_IP -C "mkdir -p /tmp/$CI_PROJECT_NAME"
     - scp -qr outputs/deploy.yml root@$K8S_MASTER_IP:/tmp/$CI_PROJECT_NAME
     - ssh -i ~/.ssh/id_rsa root@$K8S_MASTER_IP -C "kubectl apply -f /tmp/$CI_PROJECT_NAME/deploy.yml"
