@@ -35,5 +35,4 @@ public class DateUtils {
         LocalDate endDate = LocalDate.of(2015, Month.AUGUST, 12);
         long daysDiff = ChronoUnit.DAYS.between(startDate, endDate);
     }
-
 }
