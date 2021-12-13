@@ -9,6 +9,7 @@ build:
     - spring-cloud-k8s
   script:
     - whoami
+    - pwd
     - mvn -version
     - mvn clean package -Dmaven.test.skip=true
 
