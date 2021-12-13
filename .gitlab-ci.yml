@@ -12,7 +12,6 @@ build:
     - pwd
     - mvn -version
     - mvn clean package -Dmaven.test.skip=true
-
     - DIST_JAR_PATH=`find . -iname "*.jar" -not -iname "*-sources.jar"`
     - DIST_JAR_NAME=`echo $DIST_JAR_PATH | rev | cut -d'/' -f 1 | rev`
     - IMAGE_NAME=registry.cn-shenzhen.aliyuncs.com/hudeshun/$CI_PROJECT_NAME:$CI_COMMIT_REF_NAME-$CI_JOB_ID
