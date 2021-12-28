@@ -13,7 +13,7 @@ public class SemaphoreDemo {
      * 限流的用的比较多
      */
     public static void semaphoreDemo() {
-        Semaphore semaphore = new Semaphore(8);
+        Semaphore semaphore = new Semaphore(490);
         for (int i = 1; i <= 500; i++) {
             new Thread(() -> {
                 try {
