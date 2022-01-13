@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 @Slf4j
@@ -55,10 +56,13 @@ public class TestController {
     @Autowired
     private MySpringFactoriesLoader factoriesLoader;
 
+
+
     @GetMapping("/test")
-    public void test() {
+    public void test() throws InterruptedException {
         log.info("trace... ");
         myFeignFactoryBean.test();
+        TimeUnit.SECONDS.sleep(10);
     }
 
     @GetMapping("/conditionBean")
