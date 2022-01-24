@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Component
 public class SimpleReceiver {
 
-    @RabbitListener(queues = "one-queue", containerFactory = "simpleRabbitListenerContainerFactory")
+//    @RabbitListener(queues = "one-queue", containerFactory = "simpleRabbitListenerContainerFactory")
     public void receiveDto1(SimpleMessage message, Channel channel, Message msg) throws IOException {
         log.info("{} 消费者1 消费消息:{}", LocalDateTime.now(), message);
 
