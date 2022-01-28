@@ -37,6 +37,9 @@ import java.lang.reflect.Proxy;
  *
  * 所以两者初始化所针对的场景不同。
  *
+ *
+ * 注：该类一般用于框架，有对应的适配类用户扩展{@link org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter}
+ *
  */
 
 @Slf4j
