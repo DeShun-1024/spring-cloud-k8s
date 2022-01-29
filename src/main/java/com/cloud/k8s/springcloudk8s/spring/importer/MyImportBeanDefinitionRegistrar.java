@@ -34,6 +34,8 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
         // BY type
         definitionBuilder.setAutowireMode(2);
         final AbstractBeanDefinition beanDefinition = definitionBuilder.getBeanDefinition();
+
+        // 这里使用FactoryBean.OBJECT_TYPE_ATTRIBUTE，在后续bean的实例化过程中，会使用MyFeignFactoryBean来完成bean实例化
         beanDefinition.setAttribute(FactoryBean.OBJECT_TYPE_ATTRIBUTE, MyFeign.class);
 
         // 为什么 @Autowired 会直接注入这个bean？bean默认是单例
