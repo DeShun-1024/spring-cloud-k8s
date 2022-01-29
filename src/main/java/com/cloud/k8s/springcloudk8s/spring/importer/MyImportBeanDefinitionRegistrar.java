@@ -11,6 +11,8 @@ import org.springframework.core.type.AnnotationMetadata;
 
 
 /**
+ * 动态注册Bean
+ *
  * 1、使用factoryBean来自定义bean的实现方式，创建类的动态代理对象
  * 2、实现spring的bean扩展接口，自定义bena的定义信息，并执行这些bean的生成方式；
  * 3、此时是可以通过factoryBean来设置bean的生成方式的
@@ -21,6 +23,8 @@ public class MyImportBeanDefinitionRegistrar implements ImportBeanDefinitionRegi
     /**
      * 与ImportSelector想比较，改方法对于bean可以做更多定制。
      * 例如，{@link org.springframework.cloud.openfeign.EnableFeignClients}，注入一类bean
+     *
+     *
      */
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {

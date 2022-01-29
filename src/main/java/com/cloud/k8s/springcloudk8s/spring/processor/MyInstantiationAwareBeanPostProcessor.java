@@ -23,23 +23,24 @@ import java.lang.reflect.Proxy;
  * <p>
  * <p>
  * 这个相比较一般的BeanPostProcessor，会在实例化之前之前；
- *
- *
- *
+ * <p>
+ * <p>
+ * <p>
  * spring的实例化与初始化；
  * 实例化：在spring的角度，实例化就是完成一个对象的创建；
  * 初始化：就是对这个实例化对象的属性组装；
- *
+ * <p>
  * 但是在JVM中的周期是不同的；
  * 在JVM中首先需要把类的相关信息加载到虚拟机中，分配好内存，然后才能执行clinit方法创建对象。虚拟机初始化的，是指在创建对象前的初始化。
- *
+ * <p>
  * 而spring的初始化，是指在对象new出来后，完成预先想设置的属性的过程称为初始化。
- *
+ * <p>
  * 所以两者初始化所针对的场景不同。
- *
- *
+ * <p>
+ * BPP有两个时间点扩展，实例化与初始化
+ * <p>
+ * <p>
  * 注：该类一般用于框架，有对应的适配类用户扩展{@link org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter}
- *
  */
 
 @Slf4j
@@ -57,7 +58,8 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
     @Override
     public Object postProcessBeforeInstantiation(Class<?> beanClass, String beanName) throws BeansException {
         if (beanName.equals("instantiationAware")) {
-            log.info("执行postProcessBeforeInstantiation...");
+            log.info("自定义【BeanPostProcessor】执行 执行postProcessBeforeInstantiation bean name:{}", beanName);
+
             final InstantiationAwareImpl target = new InstantiationAwareImpl();
             final InstantiationAwareInvoker invoker = new InstantiationAwareInvoker(target);
 
@@ -77,7 +79,7 @@ public class MyInstantiationAwareBeanPostProcessor implements InstantiationAware
     public boolean postProcessAfterInstantiation(Object bean, String beanName) throws BeansException {
         if (beanName.equals("myBeanPostProcessorBean") && bean instanceof MyBeanPostProcessor.MyBeanPostProcessorBean) {
             ((MyBeanPostProcessor.MyBeanPostProcessorBean) bean).setBeanName("postProcessAfterInstantiation");
-            log.info("【MyBeanPostProcessor】postProcessAfterInstantiation bean name:{}", beanName);
+            log.info("自定义【BeanPostProcessor】执行 postProcessAfterInstantiation bean name:{}", beanName);
         }
         return InstantiationAwareBeanPostProcessor.super.postProcessAfterInstantiation(bean, beanName);
     }
