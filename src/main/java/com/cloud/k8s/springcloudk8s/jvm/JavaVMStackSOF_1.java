@@ -1,7 +1,9 @@
 package com.cloud.k8s.springcloudk8s.jvm;
 
 /**
- * VM Args：-Xss128k
+ * VM Args：-Xss128k，该参数设置的是每个线程，栈占用空间；
+ *
+ * hotsopt虚拟机 不支持虚拟机栈的动态扩容的，所以是不会由于虚拟机栈无法扩展而导致oom，但是如果申请时就失败，还是会oom；
  *
  * @author zzm
  */
