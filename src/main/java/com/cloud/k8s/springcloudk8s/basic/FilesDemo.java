@@ -10,13 +10,26 @@ import java.util.stream.Stream;
 public class FilesDemo {
 
 
-    public static void main(String[] args) throws IOException {
-
+    public static void read() throws IOException {
         final Path path = Paths.get("/Users/hudeshun/Downloads/11.txt");
         final Stream<String> lines = Files.lines(path);
         for (String s : lines.collect(Collectors.toList())) {
             System.out.println(s);
         }
+    }
+
+    public static void readFilesName() throws IOException {
+        final Path path = Paths.get("./");
+
+        final Stream<Path> list = Files.list(path);
+
+        for (Path path1 : list.collect(Collectors.toList())) {
+            System.out.println(path1.getFileName());
+        }
+    }
+
+
+    public static void main(String[] args) throws IOException {
 
     }
 }
